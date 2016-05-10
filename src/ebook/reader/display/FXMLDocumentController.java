@@ -7,16 +7,22 @@ package ebook.reader.display;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.web.WebView;
+
 
 /**
  *
  * @author ekeenan
  */
 public class FXMLDocumentController implements Initializable {
+    
+    @FXML
+    private WebView bookUrl;
     
     @FXML
     private Label label;
@@ -29,7 +35,11 @@ public class FXMLDocumentController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        Scanner userInput = new Scanner(System.in);
+        String s = null;
+        System.out.println("Please enter in the url of the book you want to read.");
+        s = userInput.next();
+        bookUrl.getEngine().load(s);
     }    
     
 }
