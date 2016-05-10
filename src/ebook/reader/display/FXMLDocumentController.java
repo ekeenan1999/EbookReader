@@ -7,6 +7,7 @@ package ebook.reader.display;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -34,7 +35,11 @@ public class FXMLDocumentController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        bookUrl.getEngine().load("http://www.textfiles.com/etext/FICTION/tennyson-charge-191.txt");
+        Scanner userInput = new Scanner(System.in);
+        String s = null;
+        System.out.println("Please enter in the url of the book you want to read.");
+        s = userInput.next();
+        bookUrl.getEngine().load(s);
     }    
     
 }
