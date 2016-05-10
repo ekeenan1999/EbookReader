@@ -11,12 +11,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.web.WebView;
+
 
 /**
  *
  * @author ekeenan
  */
 public class FXMLDocumentController implements Initializable {
+    
+    @FXML
+    private WebView bookUrl;
     
     @FXML
     private Label label;
@@ -29,7 +34,7 @@ public class FXMLDocumentController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        bookUrl.getEngine().load("http://www.textfiles.com/etext/FICTION/tennyson-charge-191.txt");
     }    
     
 }
