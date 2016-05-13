@@ -27,19 +27,38 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Label label;
     
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-    }
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Scanner userInput = new Scanner(System.in);
         String s = null;
         System.out.println("Please enter in the url of the book you want to read.");
         s = userInput.next();
-        bookUrl.getEngine().load(s);
+        try {
+            url = new URL(s);
+        } catch (Exception e) {
+            System.out.println("Improper URL " + s);
+            System.exit(-1);
+        }
+     
+        // read from the URL
+        Scanner scan = null;
+        try {
+            scan = new Scanner(url.openStream());
+        } catch (Exception e) {
+            System.out.println("Could not connect to " + s);
+            System.exit(-1);
+        }
+        
+        String str = new String();
+        while (scan.hasNext()) {
+            int a = 1;
+            for(int i = 0; i < 38; i++){
+                str += scan.nextLine() + "\n";
+            }
+            Page p = new Page(str, a);
+            a++;
+        }
+        scan.close();
     }    
     
 }
