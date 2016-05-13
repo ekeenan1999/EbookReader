@@ -9,7 +9,7 @@ public class Page {
     private int pageNumber;
     private String pageText;
     
-    public Page(String pageT, int pageN){
+    Page(String pageT, int pageN){
         this.pageNumber = pageN;
         this.pageText = pageT;
     }
