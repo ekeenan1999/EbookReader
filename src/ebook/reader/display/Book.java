@@ -19,4 +19,13 @@ public class Book {
         this.title = title;
         this.author = author;
     }
+    
+    public void addPage(Page p){
+        for(int i = 0; i < text.length; i++){
+            if(text[i] != null){
+                text[i] = p;
+            }
+            break;
+        }
+    }
 }
