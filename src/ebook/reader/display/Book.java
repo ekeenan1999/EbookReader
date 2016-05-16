@@ -15,6 +15,8 @@ public class Book {
     public String title;
     public String author;
     
-    public Book(String url){
+    public Book(String url, String title, String author){
+        this.title = title;
+        this.author = author;
     }
 }
