@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
 import javafx.fxml.FXML;
+import javafx.scene.image.ImageView;
 
 /**
  * FXML Controller class
@@ -19,22 +20,22 @@ import javafx.fxml.FXML;
 public class LibraryGUIController implements Initializable {
 
     @FXML
-    private Pane book1;
+    private ImageView book1;
     
     @FXML
-    private Pane book2;
+    private ImageView book2;
      
     @FXML
-    private Pane book3;
+    private ImageView book3;
     
     @FXML
-    private Pane book4;
+    private ImageView book4;
     
     @FXML
-    private Pane book5;
+    private ImageView book5;
     
     @FXML
-    private Pane book6;
+    private ImageView book6;
     
    
     
@@ -47,8 +48,10 @@ public class LibraryGUIController implements Initializable {
     }
 
     @FXML 
-    public void onMouseClicked() {
-        
+    public void onMouseClickedB1() {
+        book1.setImage();
     }
     
 }
+
+//Add labels to scene builder in imageviews... then add image of book to imageviews.. change label onMouseClicked
