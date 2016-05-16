@@ -5,6 +5,8 @@
  */
 package ebook.reader.display;
 import java.io.*;
+import java.net.*;
+import java.util.*;
 
 /**
  *
@@ -36,7 +38,7 @@ public class Singleton implements java.io.Serializable{
         }
     }
     
-    private static void save(){
+    private static void saveUrl(){
         init();
         try{
             FileOutputStream fileOut = new FileOutputStream("bookInfo.ser");
@@ -49,6 +51,30 @@ public class Singleton implements java.io.Serializable{
         catch(IOException i){
             i.printStackTrace();
         } 
+    }
+    
+    private static void saveBook(String url){
+        URL myUrl = null;
+        try {
+            myUrl = new URL(url);
+        } catch (Exception e) {
+            System.out.println("Improper URL " + url);
+            System.exit(-1);
+        }
+        
+        Scanner scan = null;
+        try {
+            scan = new Scanner(myUrl.openStream());
+        } catch (Exception e) {
+            System.out.println("Could not connect to " + url);
+            System.exit(-1);
+        }
+        
+        String str = new String();
+        while (scan.hasNext()) {
+            str += scan.nextLine() + "\n";
+        }
+        scan.close();
     }
     
     private static void setURL(String url){
