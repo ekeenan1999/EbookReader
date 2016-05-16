@@ -27,12 +27,24 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Label label;
     
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Scanner userInput = new Scanner(System.in);
+        //get earl
         String s = null;
-        System.out.println("Please enter in the url of the book you want to read.");
+        System.out.println("URL yo");
         s = userInput.next();
+        //get title
+        String t = null;
+        System.out.println("What the title yo");
+        t = userInput.next();
+        //get auth
+        String a = null;
+        System.out.println("What the auth yo");
+        a = userInput.next();
+                
+        Book b = new Book(s, t, a);
         try {
             url = new URL(s);
         } catch (Exception e) {
@@ -51,12 +63,13 @@ public class FXMLDocumentController implements Initializable {
         
         String str = new String();
         while (scan.hasNext()) {
-            int a = 1;
+            int x = 1;
             for(int i = 0; i < 38; i++){
                 str += scan.nextLine() + "\n";
             }
-            Page p = new Page(str, a);
-            a++;
+            Page p = new Page(str, x);
+            b.addPage(p);
+            x++;
         }
         scan.close();
     }    
