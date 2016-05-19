@@ -11,7 +11,7 @@ import java.util.*;
  */
 public class Book {
     private ArrayList<Integer> bookmarks;
-    private Page[] text;
+    private Page[] text = new Page[100];
     public String title;
     public String author;
     public String url;
