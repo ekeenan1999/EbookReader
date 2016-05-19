@@ -33,15 +33,15 @@ public class FXMLDocumentController implements Initializable {
         Scanner userInput = new Scanner(System.in);
         //get user input
         String s = null;
-        System.out.println("Paste the URL for the text file here");
+        System.out.println("URL of the text file: ");
         s = userInput.next();
         //get title
         String t = null;
-        System.out.println("Enter the title of the book here");
+        System.out.println("Book title: ");
         t = userInput.next();
         //get auth
         String a = null;
-        System.out.println("Enter the author of the book here");
+        System.out.println("Author: ");
         a = userInput.next();
         
         //create book using user input

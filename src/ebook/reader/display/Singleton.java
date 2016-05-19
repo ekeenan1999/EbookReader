@@ -14,7 +14,7 @@ import java.util.*;
  */
 public class Singleton implements java.io.Serializable{
     private Book book;
-    private String bookUrl;  //"http://www.textfiles.com/etext/FICTION/tennyson-charge-191.txt";
+    private String bookUrl;
     public static Singleton instance;
     
     private Singleton(){
@@ -55,12 +55,13 @@ public class Singleton implements java.io.Serializable{
         } 
     }
     
-    private static void saveBook(String url){
+    private static void saveBook(Book b){
+        init();
         URL myUrl = null;
         try {
-            myUrl = new URL(url);
+            myUrl = new URL(b.getUrl());
         } catch (Exception e) {
-            System.out.println("Improper URL " + url);
+            System.out.println("Improper URL " + b.getUrl());
             System.exit(-1);
         }
         
@@ -68,13 +69,13 @@ public class Singleton implements java.io.Serializable{
         try {
             scan = new Scanner(myUrl.openStream());
         } catch (Exception e) {
-            System.out.println("Could not connect to " + url);
+            System.out.println("Could not connect to " + b.getUrl());
             System.exit(-1);
         }
         
-        String str = new String();
+        String text = new String();
         while (scan.hasNext()) {
-            str += scan.nextLine() + "\n";
+            text += scan.nextLine() + "\n";
         }
         scan.close();
     }
