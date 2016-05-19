@@ -15,6 +15,7 @@ public class Book {
     public String title;
     public String author;
     public String url;
+    public int curPage;
     
     public Book(String url, String title, String author){
         this.title = title;
@@ -30,6 +31,17 @@ public class Book {
             }
             break;
         }
+        
+    }
+    
+    //turn to the next page
+    public void nextPage(){
+        curPage = curPage + 1;
+    }
+    
+    //turn to the previous page
+    public void prevPage(){
+        curPage = curPage - 1;
     }
 
     public String getUrl() {
