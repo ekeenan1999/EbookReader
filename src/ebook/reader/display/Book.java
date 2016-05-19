@@ -43,4 +43,8 @@ public class Book {
     public String getAuthor() {
         return author;
     }
+    
+    public Page[] getText(){
+        return text;
+    }
 }
