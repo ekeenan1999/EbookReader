@@ -23,6 +23,8 @@ public class LibraryGUIController implements Initializable {
     
     private Book book;
     
+    private boolean pressed = false;
+    
     @FXML
     private ImageView book1;
     
@@ -70,20 +72,23 @@ public class LibraryGUIController implements Initializable {
 
     @FXML 
     public void onMouseClickedB1() {
-        Scanner userInput = new Scanner(System.in);
-        String url = null;
-        System.out.println("Please enter in the url of the book you want to add.");
-        url = userInput.next();
-        String title = null;
-        System.out.println("Please enter the title of the book");
-        title = userInput.next();
-        String author = null;
-        System.out.println("Please enter the title of the book");
-        author = userInput.next();
-        Book newBook = new Book(url, title, author);
-        //Singleton.saveBook(newBook.getUrl());
-        b1Label.setText(newBook.getTitle() + "by" + newBook.getAuthor());
-        
+        if(pressed = false) {
+            Scanner userInput = new Scanner(System.in);
+            String url = null;
+            System.out.println("Please enter in the url of the book you want to add.");
+            url = userInput.next();
+            String title = null;
+            System.out.println("Please enter the title of the book");
+            title = userInput.next();
+            String author = null;
+            System.out.println("Please enter the title of the book");
+            author = userInput.next();
+            Book newBook = new Book(url, title, author);
+            b1Label.setText(newBook.getTitle() + "by" + newBook.getAuthor());
+            pressed = true;
+        } else {
+            //OPEN BOOK THAT IS SAVED IN THE PANEL
+        }
     }
     
 }
