@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ebook.reader.display.LibraryGUIController">
    <children>
@@ -22,32 +24,80 @@
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <ImageView fx:id="book1" fitHeight="200.0" fitWidth="300.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="1.0" />
+                  <ImageView fx:id="book1" fitHeight="200.0" fitWidth="300.0" layoutX="1.0" layoutY="1.0" onMouseClicked="#onMouseClickedB1" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="1.0">
+                     <image>
+                        <Image url="@../../../../../../Desktop/book_background.jpg" />
+                     </image></ImageView>
+                  <Label fx:id="b1Label" layoutX="53.0" layoutY="75.0" text="Add a new book!">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                <children>
-                  <ImageView fx:id="book2" fitHeight="200.0" fitWidth="300.0" layoutX="-1.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="book2" fitHeight="200.0" fitWidth="300.0" layoutX="-1.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Desktop/book_background.jpg" />
+                     </image></ImageView>
+                  <Label fx:id="b2Label" layoutX="51.0" layoutY="76.0" text="Add a new book!">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <children>
-                  <ImageView fx:id="book3" fitHeight="200.0" fitWidth="300.0" layoutX="-1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="book3" fitHeight="200.0" fitWidth="300.0" layoutX="-1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Desktop/book_background.jpg" />
+                     </image></ImageView>
+                  <Label fx:id="b3Label" layoutX="52.0" layoutY="75.0" text="Add a new book!">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <ImageView fx:id="book4" fitHeight="200.0" fitWidth="300.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="book4" fitHeight="200.0" fitWidth="300.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Desktop/book_background.jpg" />
+                     </image></ImageView>
+                  <Label fx:id="b4Label" layoutX="52.0" layoutY="76.0" text="Add a new book!">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                <children>
-                  <ImageView fx:id="book5" fitHeight="200.0" fitWidth="300.0" layoutX="-1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="book5" fitHeight="200.0" fitWidth="300.0" layoutX="-1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Desktop/book_background.jpg" />
+                     </image></ImageView>
+                  <Label fx:id="b5Label" layoutX="52.0" layoutY="75.0" text="Add a new book!">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <ImageView fx:id="book6" fitHeight="200.0" fitWidth="300.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="-1.0" />
+                  <ImageView fx:id="book6" fitHeight="200.0" fitWidth="300.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="-1.0">
+                     <image>
+                        <Image url="@../../../../../../Desktop/book_background.jpg" />
+                     </image></ImageView>
+                  <Label fx:id="b6Label" layoutX="52.0" layoutY="73.0" text="Add a new book!">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </children>

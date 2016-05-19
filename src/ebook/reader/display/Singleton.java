@@ -13,10 +13,12 @@ import java.util.*;
  * @author csstudent
  */
 public class Singleton implements java.io.Serializable{
-    private String bookUrl = "http://www.textfiles.com/etext/FICTION/tennyson-charge-191.txt";
+    private Book book;
+    private String bookUrl;  //"http://www.textfiles.com/etext/FICTION/tennyson-charge-191.txt";
     public static Singleton instance;
     
     private Singleton(){
+        this.bookUrl = book.getUrl();
     }
     
     private static void init(){

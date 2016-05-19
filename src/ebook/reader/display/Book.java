@@ -14,9 +14,23 @@ public class Book {
     private Page[] text;
     public String title;
     public String author;
+    public String url;
     
     public Book(String url, String title, String author){
         this.title = title;
         this.author = author;
+        this.url = url;
+    }
+    
+    public String getUrl() {
+        return url;
+    }
+    
+    public String getTitle() {
+        return title;
+    }
+    
+    public String getAuthor() {
+        return author;
     }
 }

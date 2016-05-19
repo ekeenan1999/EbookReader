@@ -7,9 +7,11 @@ package ebook.reader.display;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
 /**
@@ -18,7 +20,9 @@ import javafx.scene.image.ImageView;
  * @author ekeenan
  */
 public class LibraryGUIController implements Initializable {
-
+    
+    private Book book;
+    
     @FXML
     private ImageView book1;
     
@@ -37,7 +41,24 @@ public class LibraryGUIController implements Initializable {
     @FXML
     private ImageView book6;
     
+    @FXML
+    private Label b1Label;
+    
+    @FXML
+    private Label b2Label;
+    
+    @FXML
+    private Label b3Label;
+  
+    @FXML
+    private Label b4Label;       
    
+    @FXML
+    private Label b5Label;
+            
+    @FXML
+    private Label b6Label;
+    
     
     /**
      * Initializes the controller class.
@@ -49,7 +70,20 @@ public class LibraryGUIController implements Initializable {
 
     @FXML 
     public void onMouseClickedB1() {
-        book1.setImage();
+        Scanner userInput = new Scanner(System.in);
+        String url = null;
+        System.out.println("Please enter in the url of the book you want to add.");
+        url = userInput.next();
+        String title = null;
+        System.out.println("Please enter the title of the book");
+        title = userInput.next();
+        String author = null;
+        System.out.println("Please enter the title of the book");
+        author = userInput.next();
+        Book newBook = new Book(url, title, author);
+        //Singleton.saveBook(newBook.getUrl());
+        b1Label.setText(newBook.getTitle() + "by" + newBook.getAuthor());
+        
     }
     
 }
