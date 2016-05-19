@@ -12,7 +12,9 @@ import java.util.*;
 public class Book {
     private ArrayList<Integer> bookmarks;
     private Page[] text;
+    public String title;
+    public String author;
     
-    public Book(){
+    public Book(String url){
     }
 }
