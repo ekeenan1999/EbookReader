@@ -21,5 +21,4 @@ public class Page {
     public String getPageText(){
         return pageText;
     }
-    
 }

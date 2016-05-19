@@ -7,11 +7,11 @@ package ebook.reader.display;
 import java.util.*;
 /**
  *
- * @author csstudent
+ * @author Alex Blocker and Wilson Hayward
  */
 public class Book {
     private ArrayList<Integer> bookmarks;
-    private Page[] text;
+    private Page[] text = new Page[100];
     public String title;
     public String author;
     public String url;
@@ -22,6 +22,16 @@ public class Book {
         this.url = url;
     }
     
+    //add a page to the book
+    public void addPage(Page p){
+        for(int i = 0; i < text.length - 1; i++){
+            if(text[i] != null){
+                text[i] = p;
+            }
+            break;
+        }
+    }
+
     public String getUrl() {
         return url;
     }
