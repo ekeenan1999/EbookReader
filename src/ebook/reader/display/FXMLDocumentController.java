@@ -17,7 +17,7 @@ import javafx.scene.web.WebView;
 
 /**
  *
- * @author ekeenan
+ * @author Alex Blocker and Wilson Hayward
  */
 public class FXMLDocumentController implements Initializable {
     
@@ -27,12 +27,25 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Label label;
     
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Scanner userInput = new Scanner(System.in);
+        //get user input
         String s = null;
-        System.out.println("Please enter in the url of the book you want to read.");
+        System.out.println("Paste the URL for the text file here");
         s = userInput.next();
+        //get title
+        String t = null;
+        System.out.println("Enter the title of the book here");
+        t = userInput.next();
+        //get auth
+        String a = null;
+        System.out.println("Enter the author of the book here");
+        a = userInput.next();
+        
+        //create book using user input
+        Book b = new Book(s, t, a);
         try {
             url = new URL(s);
         } catch (Exception e) {
@@ -49,16 +62,21 @@ public class FXMLDocumentController implements Initializable {
             System.exit(-1);
         }
         
+        //Split the book into pages
         String str = new String();
         while (scan.hasNext()) {
-            int a = 1;
+            int x = 1;
             for(int i = 0; i < 38; i++){
-                str += scan.nextLine() + "\n";
+                if (scan.hasNextLine()){                
+                    str = scan.nextLine() + "\n";
+                }
+                Page p = new Page(str, x);
+                b.addPage(p);
             }
-            Page p = new Page(str, a);
-            a++;
+            x++;
         }
         scan.close();
+        
+        
     }    
-    
 }
