@@ -22,6 +22,7 @@ public class Book {
         this.title = title;
         this.author = author;
         this.url = url;
+        curPage = 1;
         
         URL bookUrl = null;
         try {
@@ -75,6 +76,10 @@ public class Book {
     public void prevPage(){
         curPage = curPage - 1;
     }
+    
+    public void goToStart(){
+        curPage = 1;
+    }
 
     public String getUrl() {
         return url;
@@ -90,5 +95,9 @@ public class Book {
     
     public Page[] getText(){
         return text;
+    }
+    
+    public void addBookmark(int page){
+        bookmarks.add(page);
     }
 }
