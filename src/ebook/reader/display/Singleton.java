@@ -40,7 +40,7 @@ public class Singleton implements java.io.Serializable{
         }
     }
     
-    private static void saveBook(Book b){
+    public static void saveBook(Book b){
         init();
         ArrayList<Page> pages = new ArrayList<Page>();
         for(Page p : b.getText()){
