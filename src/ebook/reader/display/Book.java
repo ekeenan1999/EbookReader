@@ -78,7 +78,7 @@ public class Book {
     }
     
     public void goToStart(){
-        curPage = 1;
+        curPage = 0;
     }
 
     public String getUrl() {

@@ -72,11 +72,11 @@ public class FXMLDocumentController implements Initializable {
                 }
                 Page p = new Page(str, x);
                 b.addPage(p);
+                
             }
             x++;
         }
         scan.close();
-        
         
         
     }    
