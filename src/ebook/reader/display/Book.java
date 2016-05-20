@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package ebook.reader.display;
+import java.net.URL;
 import java.util.*;
 /**
  *
@@ -15,11 +16,43 @@ public class Book {
     public String title;
     public String author;
     public String url;
+    public int curPage;
     
     public Book(String url, String title, String author){
         this.title = title;
         this.author = author;
         this.url = url;
+        
+        URL bookUrl = null;
+        try {
+            bookUrl = new URL(url);
+        } catch (Exception e) {
+            System.out.println("Improper URL " + url);
+            System.exit(-1);
+        }
+        
+        Scanner scan = null;
+        try {
+            scan = new Scanner(bookUrl.openStream());
+        } catch (Exception e) {
+            System.out.println("Could not connect to " + url);
+            System.exit(-1);
+        }
+        
+        //Split the book into pages
+        String str = new String();
+        while (scan.hasNext()) {
+            int x = 1;
+            for(int i = 0; i < 38; i++){
+                if (scan.hasNextLine()){                
+                    str = scan.nextLine() + "\n";
+                }
+                Page p = new Page(str, x);
+                this.addPage(p);
+            }
+            x++;
+        }
+        scan.close();
     }
     
     //add a page to the book
@@ -30,6 +63,17 @@ public class Book {
             }
             break;
         }
+        
+    }
+    
+    //turn to the next page
+    public void nextPage(){
+        curPage = curPage + 1;
+    }
+    
+    //turn to the previous page
+    public void prevPage(){
+        curPage = curPage - 1;
     }
 
     public String getUrl() {
@@ -42,5 +86,9 @@ public class Book {
     
     public String getAuthor() {
         return author;
+    }
+    
+    public Page[] getText(){
+        return text;
     }
 }
