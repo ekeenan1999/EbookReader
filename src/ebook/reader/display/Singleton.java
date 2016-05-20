@@ -58,8 +58,8 @@ public class Singleton implements java.io.Serializable{
             System.out.printf("Serialized data is saved in bookInfo.ser");
         }
         catch(IOException i){
-            i.printStackTrace();
-        }
+            
+        } 
     }
     
     private static void setURL(String url){
