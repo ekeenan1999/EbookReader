@@ -40,8 +40,15 @@ public class Singleton implements java.io.Serializable{
         }
     }
     
-    private static void saveUrl(){
+    public static void saveBook(Book b){
         init();
+        ArrayList<Page> pages = new ArrayList<Page>();
+        for(Page p : b.getText()){
+            pages.add(p);
+        }
+        String author = b.getAuthor();
+        String title = b.getTitle();
+        
         try{
             FileOutputStream fileOut = new FileOutputStream("bookInfo.ser");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -52,32 +59,7 @@ public class Singleton implements java.io.Serializable{
         }
         catch(IOException i){
             i.printStackTrace();
-        } 
-    }
-    
-    private static void saveBook(Book b){
-        init();
-        URL myUrl = null;
-        try {
-            myUrl = new URL(b.getUrl());
-        } catch (Exception e) {
-            System.out.println("Improper URL " + b.getUrl());
-            System.exit(-1);
         }
-        
-        Scanner scan = null;
-        try {
-            scan = new Scanner(myUrl.openStream());
-        } catch (Exception e) {
-            System.out.println("Could not connect to " + b.getUrl());
-            System.exit(-1);
-        }
-        
-        String text = new String();
-        while (scan.hasNext()) {
-            text += scan.nextLine() + "\n";
-        }
-        scan.close();
     }
     
     private static void setURL(String url){
