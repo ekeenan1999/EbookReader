@@ -55,7 +55,7 @@ public class Singleton implements java.io.Serializable{
         } 
     }
     
-    private static void saveBook(Book b){
+    public static void saveBook(Book b){
         init();
         URL myUrl = null;
         try {
