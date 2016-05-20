@@ -46,6 +46,8 @@ public class Singleton implements java.io.Serializable{
         for(Page p : b.getText()){
             pages.add(p);
         }
+        String author = b.getAuthor();
+        String title = b.getTitle();
         
         try{
             FileOutputStream fileOut = new FileOutputStream("bookInfo.ser");
@@ -57,7 +59,7 @@ public class Singleton implements java.io.Serializable{
         }
         catch(IOException i){
             i.printStackTrace();
-        } 
+        }
     }
     
     private static void setURL(String url){
