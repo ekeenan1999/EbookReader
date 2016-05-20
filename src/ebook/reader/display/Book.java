@@ -80,6 +80,10 @@ public class Book {
     public void goToStart(){
         curPage = 1;
     }
+    
+    public void goToEnd(){
+        curPage = text.length;
+    }
 
     public String getUrl() {
         return url;
@@ -99,5 +103,11 @@ public class Book {
     
     public void addBookmark(int page){
         bookmarks.add(page);
+    }
+    
+    public void deleteBookmark(int page){
+        if(bookmarks.indexOf(page) >= 0){
+            bookmarks.remove(page);
+        }
     }
 }
