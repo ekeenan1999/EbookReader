@@ -79,10 +79,10 @@ public class LibraryGUIController implements Initializable {
             url = userInput.next();
             String title = null;
             System.out.println("Please enter the title of the book");
-            title = userInput.next();
+            title = userInput.nextLine();
             String author = null;
             System.out.println("Please enter the author of the book");
-            author = userInput.next();
+            author = userInput.nextLine();
             Book newBook = new Book(url, title, author);
             b1Label.setText(newBook.getTitle() + " by " + newBook.getAuthor());
             Singleton.saveBook(newBook);
