@@ -59,8 +59,25 @@ public class Singleton implements java.io.Serializable{
         }
         catch(IOException i){
             
-        } 
+        }
     }
+    
+public static void recallBook(Book b){
+    try{
+        FileInputStream fileIn = new FileInputStream("bookInfo.ser");
+        ObjectInputStream in = new ObjectInputStream(fileIn);
+        instance = (Singleton) in.readObject();
+        in.close();
+        fileIn.close();
+    }
+    catch(IOException i){
+        i.printStackTrace();
+    }
+    catch(ClassNotFoundException c) {
+        System.out.println("Singleton class not found");
+        c.printStackTrace();
+    }
+}
     
     private static void setURL(String url){
         init();
