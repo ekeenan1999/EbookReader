@@ -89,6 +89,7 @@ public class LibraryGUIController implements Initializable {
             Singleton.saveBook(newBook);
             b1pressed = true;
         } else if (b1pressed == true) {
+            Singleton.recallBook();
             //OPEN BOOK THAT IS SAVED IN THE PANEL
         }
     }
