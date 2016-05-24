@@ -80,7 +80,8 @@ public class LibraryGUIController implements Initializable {
             Scanner userInput = new Scanner(System.in);
             String url = null;
             System.out.println("Please enter in the url of the book you want to add.");
-            url = userInput.next();
+            url = userInput.nextLine();
+            userInput.nextLine();
             String title = null;
             System.out.println("Please enter the title of the book");
             title = userInput.nextLine();
