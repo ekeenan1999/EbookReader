@@ -12,7 +12,7 @@ import java.util.*;
  */
 public class Book {
     private ArrayList<Integer> bookmarks;
-    private Page[] text = new Page[100];
+    public Page[] text = new Page[100];
     public String title;
     public String author;
     public String url;
@@ -41,16 +41,17 @@ public class Book {
         }
         
         //Split the book into pages
+        int x = 1;
         String str = new String();
         while (scan.hasNext()) {
-            int x = 1;
+
             for(int i = 0; i < 38; i++){
                 if (scan.hasNextLine()){                
-                    str = scan.nextLine() + "\n";
+                    str += scan.nextLine() + "\n";
                 }
-                Page p = new Page(str, x);
-                this.addPage(p);
             }
+            Page p = new Page(str, x);
+            this.addPage(p);
             x++;
         }
         scan.close();
@@ -58,13 +59,7 @@ public class Book {
     
     //add a page to the book
     public void addPage(Page p){
-        for(int i = 0; i < text.length - 1; i++){
-            if(text[i] != null){
-                text[i] = p;
-            }
-            break;
-        }
-        
+        text[p.getPageNumber()] = p;
     }
     
     //turn to the next page
