@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 
 
@@ -19,8 +20,21 @@ import javafx.scene.control.TextArea;
  */
 public class FXMLDocumentController implements Initializable {
     
+   private Book b = null;
+    
     @FXML
     private TextArea textArea;
+    
+    @FXML
+    private Button nextPage;
+    
+    @FXML
+    private Button prevPage;
+    
+    @FXML
+    private TextArea pageN;
+    
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -39,8 +53,20 @@ public class FXMLDocumentController implements Initializable {
         a = userInput.next();
         
         //create book using user input
-        Book b = new Book(s, t, a);
+        b = new Book(s, t, a);
         
-        textArea.appendText(b.text[1].getPageText());
+        textArea.appendText(b.text[b.curPage].getPageText());
+        pageN.appendText(String.valueOf(b.curPage));
     }
+    @FXML
+    public void nextP(){
+        b.nextPage();
+    }
+    
+    @FXML
+    public void prevP(){    
+        b.prevPage();
+    }
+    
+
 }
