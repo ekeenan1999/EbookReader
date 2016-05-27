@@ -50,6 +50,7 @@ public class Singleton implements java.io.Serializable{
         String title = b.getTitle();
         
         try{
+            instance.book = b;
             FileOutputStream fileOut = new FileOutputStream("bookInfo.ser");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(instance);
@@ -62,24 +63,24 @@ public class Singleton implements java.io.Serializable{
         }
     }
     
-public static Book recallBook(){
-    try{
-        FileInputStream fileIn = new FileInputStream("bookInfo.ser");
-        ObjectInputStream in = new ObjectInputStream(fileIn);
-        Book b = (Book) in.readObject();
-        in.close();
-        fileIn.close();
-        return b;
+    public static Book recallBook(){
+        try{
+            FileInputStream fileIn = new FileInputStream("bookInfo.ser");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            Book b = (Book) in.readObject();
+            in.close();
+            fileIn.close();
+            return b;
+        }
+        catch(IOException i){
+            
+        }
+        catch(ClassNotFoundException c) {
+            System.out.println("Singleton class not found");
+            c.printStackTrace();
+        }
+        return null;
     }
-    catch(IOException i){
-        i.printStackTrace();
-    }
-    catch(ClassNotFoundException c) {
-        System.out.println("Singleton class not found");
-        c.printStackTrace();
-    }
-    return null;
-}
     
     private static void setURL(String url){
         init();

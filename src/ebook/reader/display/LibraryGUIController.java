@@ -89,19 +89,15 @@ public class LibraryGUIController implements Initializable {
             System.out.println("Please enter the author of the book");
             author = userInput.nextLine();
             Book newBook = new Book(url, title, author);
-            if(b1Label.getText().equals("Add a new book!")){
-                b1Label.setText(newBook.getTitle() + " by " + newBook.getAuthor());
-            } else{
-                b2Label.setText(newBook.getTitle() + " by " + newBook.getAuthor());
-            }
+            b1Label.setText(newBook.getTitle() + " by " + newBook.getAuthor());
             Singleton.saveBook(newBook);
             b1pressed = true;
         } else if (b1pressed == true) {
             Singleton.recallBook();
+            b1Label.setText(book.getTitle() + " by " + book.getAuthor());
             //OPEN BOOK THAT IS SAVED IN THE PANEL
         }
     }
-    
 }
 
 //Add labels to scene builder in imageviews... then add image of book to imageviews.. change label onMouseClicked
