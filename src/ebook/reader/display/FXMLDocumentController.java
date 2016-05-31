@@ -8,11 +8,10 @@ package ebook.reader.display;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Scanner;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.web.WebView;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 
 
 /**
@@ -21,11 +20,20 @@ import javafx.scene.web.WebView;
  */
 public class FXMLDocumentController implements Initializable {
     
-    @FXML
-    private WebView bookUrl;
+   private Book b = null;
     
     @FXML
-    private Label label;
+    private TextArea textArea;
+    
+    @FXML
+    private Button nextPage;
+    
+    @FXML
+    private Button prevPage;
+    
+    @FXML
+    private TextArea pageN;
+    
     
     
     @Override
@@ -45,39 +53,20 @@ public class FXMLDocumentController implements Initializable {
         a = userInput.next();
         
         //create book using user input
-        Book b = new Book(s, t, a);
-        try {
-            url = new URL(s);
-        } catch (Exception e) {
-            System.out.println("Improper URL " + s);
-            System.exit(-1);
-        }
-     
-        // read from the URL
-        Scanner scan = null;
-        try {
-            scan = new Scanner(url.openStream());
-        } catch (Exception e) {
-            System.out.println("Could not connect to " + s);
-            System.exit(-1);
-        }
+        b = new Book(s, t, a);
         
-        //Split the book into pages
-        String str = new String();
-        while (scan.hasNext()) {
-            int x = 1;
-            for(int i = 0; i < 38; i++){
-                if (scan.hasNextLine()){                
-                    str = scan.nextLine() + "\n";
-                }
-                Page p = new Page(str, x);
-                b.addPage(p);
-                
-            }
-            x++;
-        }
-        scan.close();
-        
-        
-    }    
+        textArea.appendText(b.text[b.curPage].getPageText());
+        pageN.appendText(String.valueOf(b.curPage));
+    }
+    @FXML
+    public void nextP(){
+        b.nextPage();
+    }
+    
+    @FXML
+    public void prevP(){    
+        b.prevPage();
+    }
+    
+
 }
