@@ -5,14 +5,21 @@
  */
 package ebook.reader.display;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -22,6 +29,8 @@ import javafx.scene.image.ImageView;
 public class LibraryGUIController implements Initializable {
     
     private Book book;
+    
+    private Stage mainWindow;
     
     private boolean b1pressed = false;
     
@@ -69,6 +78,17 @@ public class LibraryGUIController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
+    
+    
+    
+    @FXML
+    public void handleBackToBook() {
+        try {
+            EbookReaderDisplay.getAppInstance().showBookView();
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     @FXML 
     public void onMouseClickedB1() {
@@ -90,6 +110,8 @@ public class LibraryGUIController implements Initializable {
             b1pressed = true;
         } else if (b1pressed == true) {
             Singleton.recallBook();
+            handleBackToBook();
+            
             //OPEN BOOK THAT IS SAVED IN THE PANEL
         }
     }
