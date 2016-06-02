@@ -81,6 +81,17 @@ public class Singleton implements java.io.Serializable{
         }
         return null;
     }
+    catch(IOException i){
+        i.printStackTrace();
+    }
+    catch(ClassNotFoundException c) {
+        System.out.println("Singleton class not found");
+        c.printStackTrace();
+    }
+    return null;
+    //need to add a parameter for a book i'm pretty sure... 
+    //+ make it so it switches to FXMLDocument so we can view it as well.
+}
     
     private static void setURL(String url){
         init();
