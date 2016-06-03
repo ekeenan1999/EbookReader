@@ -103,10 +103,6 @@ public class LibraryGUIController implements Initializable {
     @FXML 
     public void onMouseClickedB1() {
         if(b1pressed ==false) {
-            book = Singleton.recallBook();
-            if (book != null){
-                b1Label.setText(book.getTitle() + " by " + book.getAuthor());
-            }
             Scanner userInput = new Scanner(System.in);
             String url = null;
             System.out.println("Please enter in the url of the book you want to add.");
@@ -120,10 +116,12 @@ public class LibraryGUIController implements Initializable {
             author = userInput.nextLine();
             Book newBook = new Book(url, title, author);
             b1Label.setText(newBook.getTitle() + " by " + newBook.getAuthor());
+            book = newBook;
             Singleton.saveBook(newBook);
             b1pressed = true;
         } else if (b1pressed == true) {
-            //Singleton.recallBook();
+            book = Singleton.recallBook();
+            b1Label.setText(book.getTitle() + " by " + book.getAuthor());
             handleBackToBook();
             
             //OPEN BOOK THAT IS SAVED IN THE LIBRARY
