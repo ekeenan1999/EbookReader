@@ -18,7 +18,7 @@ public class Singleton implements java.io.Serializable{
     public static Singleton instance;
     
     private Singleton(){
-        this.bookUrl = book.getUrl();
+        
     }
     
     private static void init(){
@@ -31,17 +31,19 @@ public class Singleton implements java.io.Serializable{
                 fileIn.close();
             }
             catch(IOException i){
-                i.printStackTrace();
+                instance = new Singleton();
             }
             catch(ClassNotFoundException c) {
                 System.out.println("Singleton class not found");
                 c.printStackTrace();
+                System.exit(0);
             } 
         }
     }
     
     public static void saveBook(Book b){
         init();
+        instance.bookUrl = b.getUrl();
         ArrayList<Page> pages = new ArrayList<Page>();
         for(Page p : b.getText()){
             pages.add(p);
@@ -64,22 +66,8 @@ public class Singleton implements java.io.Serializable{
     }
     
     public static Book recallBook(){
-        try{
-            FileInputStream fileIn = new FileInputStream("bookInfo.ser");
-            ObjectInputStream in = new ObjectInputStream(fileIn);
-            Book b = (Book) in.readObject();
-            in.close();
-            fileIn.close();
-            return b;
-        }
-        catch(IOException i){
-            
-        }
-        catch(ClassNotFoundException c) {
-            System.out.println("Singleton class not found");
-            c.printStackTrace();
-        }
-        return null;
+        init();
+        return instance.book;
     }
     //need to add a parameter for a book i'm pretty sure... 
     //+ make it so it switches to FXMLDocument so we can view it as well.
