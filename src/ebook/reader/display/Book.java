@@ -10,7 +10,7 @@ import java.util.*;
  *
  * @author Alex Blocker and Wilson Hayward
  */
-public class Book {
+public class Book implements java.io.Serializable{
     private ArrayList<Integer> bookmarks;
     public Page[] text = new Page[100];
     public String title;

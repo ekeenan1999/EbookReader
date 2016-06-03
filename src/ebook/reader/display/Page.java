@@ -5,7 +5,7 @@
  * Author: Wilson Hayward
  */
 package ebook.reader.display;
-public class Page {
+public class Page implements java.io.Serializable{
     private int pageNumber;
     private String pageText;
     
