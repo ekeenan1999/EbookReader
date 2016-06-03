@@ -30,6 +30,8 @@ public class EbookReaderDisplay extends Application {
         
         stage.setScene(scene);
         stage.show();
+        this.appInstance = this;
+        this.mainWindow = stage;
     }
 
     /**
