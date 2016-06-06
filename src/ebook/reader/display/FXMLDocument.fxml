@@ -7,13 +7,13 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ebook.reader.display.FXMLDocumentController">
    <children>
-      <TextArea fx:id="textArea" layoutY="-2.0" prefHeight="616.0" prefWidth="815.0" />
+      <TextArea fx:id="textArea" editable="false" layoutY="-2.0" prefHeight="616.0" prefWidth="815.0" />
       <Button fx:id="nextPage" layoutX="726.0" layoutY="589.0" mnemonicParsing="false" onAction="#nextP" text="Next Page">
          <font>
             <Font size="12.0" />
          </font>
       </Button>
       <Button fx:id="prevPage" layoutY="587.0" mnemonicParsing="false" onAction="#prevP" text="Prev. Page" />
-      <TextArea fx:id="pageN" layoutX="769.0" prefHeight="23.0" prefWidth="19.0" />
+      <TextArea fx:id="pageN" editable="false" layoutX="769.0" prefHeight="23.0" prefWidth="19.0" />
    </children>
 </AnchorPane>
