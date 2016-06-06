@@ -86,7 +86,10 @@ public class LibraryGUIController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        if(b1pressed == true) {
+            book = Singleton.recallBook();
+            b1Label.setText(book.getTitle() + " by " + book.getAuthor());
+        }
     }
     
     
