@@ -20,7 +20,7 @@ import javafx.scene.control.TextArea;
  */
 public class FXMLDocumentController implements Initializable {
     
-   private Book b = null;
+    private Book b = null;
     
     @FXML
     private TextArea textArea;
@@ -34,38 +34,25 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextArea pageN;
     
-    
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Scanner userInput = new Scanner(System.in);
-        //get user input
-        String s = null;
-        System.out.println("URL of the text file: ");
-        s = userInput.next();
-        //get title
-        String t = null;
-        System.out.println("Book title: ");
-        t = userInput.next();
-        //get auth
-        String a = null;
-        System.out.println("Author: ");
-        a = userInput.next();
-        
-        //create book using user input
-        b = new Book(s, t, a);
-        
+        b = Singleton.recallBook();
         textArea.appendText(b.text[b.curPage].getPageText());
         pageN.appendText(String.valueOf(b.curPage));
     }
+    
     @FXML
     public void nextP(){
         b.nextPage();
+        textArea.appendText(b.text[b.curPage].getPageText());
+        pageN.appendText(String.valueOf(b.curPage));
     }
     
     @FXML
     public void prevP(){    
         b.prevPage();
+        textArea.appendText(b.text[b.curPage].getPageText());
+        pageN.appendText(String.valueOf(b.curPage));
     }
     
 
