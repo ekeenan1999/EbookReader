@@ -28,11 +28,13 @@ import javafx.stage.Stage;
  */
 public class LibraryGUIController implements Initializable {
     
+    private String b1title;
+    
     private Book book;
     
     private Stage mainWindow;
     
-    private boolean b1pressed = false;
+    private boolean b1pressed;
     
     private boolean b2pressed = false;
      
@@ -86,8 +88,8 @@ public class LibraryGUIController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        if(b1pressed == true) {
-            book = Singleton.recallBook();
+        book = Singleton.recallBook();
+        if(book.getTitle().equals(b1title)) {
             b1Label.setText(book.getTitle() + " by " + book.getAuthor());
         }
     }
@@ -113,6 +115,7 @@ public class LibraryGUIController implements Initializable {
             userInput.nextLine();
             String title = null;
             System.out.println("Please enter the title of the book");
+            b1title = title;
             title = userInput.nextLine();
             String author = null;
             System.out.println("Please enter the author of the book");

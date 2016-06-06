@@ -41,6 +41,7 @@ public class Singleton implements java.io.Serializable{
         }
     }
     
+    //need to save the book for each of the positions
     public static void saveBook(Book b){
         init();
         instance.bookUrl = b.getUrl();
