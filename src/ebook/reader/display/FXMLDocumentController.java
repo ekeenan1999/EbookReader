@@ -43,16 +43,20 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     public void nextP(){
-        b.nextPage();
-        textArea.appendText(b.text[b.curPage].getPageText());
-        pageN.appendText(String.valueOf(b.curPage));
+        if (b.getText()[b.curPage+1] != null){
+            b.nextPage();
+            textArea.appendText(b.text[b.curPage].getPageText());
+            pageN.appendText(String.valueOf(b.curPage));
+        }
     }
     
     @FXML
-    public void prevP(){    
-        b.prevPage();
-        textArea.appendText(b.text[b.curPage].getPageText());
-        pageN.appendText(String.valueOf(b.curPage));
+    public void prevP(){
+        if (b.getText()[b.curPage-1] != null){
+            b.prevPage();
+            textArea.appendText(b.text[b.curPage].getPageText());
+            pageN.appendText(String.valueOf(b.curPage));
+        }
     }
     
 
